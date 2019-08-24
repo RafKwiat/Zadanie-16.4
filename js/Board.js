@@ -11,7 +11,8 @@ document.querySelector('#board .create-column').addEventListener('click', functi
     var name = prompt('Enter a column name');
     var data = new FormData();
     
-    data.append('name', name);    
+    data.append('name', name);
+    
     fetch(baseUrl + '/column', {
         method: 'POST',
         headers: myHeaders,

@@ -26,10 +26,11 @@ function setupCards(col, cards) {
   	col.addCard(cardObj);
 	});
 }
-
-function addCard(card) {
-    this.element.querySelector('ul').appendChild(card.element);
+Column.prototype = {
+	addCard: function(card) {
+	  this.element.querySelector('ul').appendChild(card.element);
 	}
+}
 
 function generateTemplate(name, data, basicElement) {
   	var template = document.getElementById(name).innerHTML;
