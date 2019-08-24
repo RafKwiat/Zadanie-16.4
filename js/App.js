@@ -12,16 +12,6 @@ fetch(baseUrl + '/board', { headers: myHeaders })
     setupColumns(resp.columns);
   });
 
-function generateTemplate(name, data, basicElement) {
-  	var template = document.getElementById(name).innerHTML;
-  	var element = document.createElement(basicElement || 'div');
-  
-  	Mustache.parse(template);
-  	element.innerHTML = Mustache.render(template, data);
-  
-  	return element;
-}
-
 function setupColumns(columns) {
     columns.forEach(function (column) {
         var col = new Column(column.id, column.name);
@@ -36,5 +26,21 @@ function setupCards(col, cards) {
   	col.addCard(cardObj);
 	});
 }
+
+function addCard(card) {
+    this.element.querySelector('ul').appendChild(card.element);
+	}
+
+function generateTemplate(name, data, basicElement) {
+  	var template = document.getElementById(name).innerHTML;
+  	var element = document.createElement(basicElement || 'div');
+  
+  	Mustache.parse(template);
+  	element.innerHTML = Mustache.render(template, data);
+  
+  	return element;
+}
+
+
 
 
